@@ -29,6 +29,7 @@
 // to add the "Authorization: OAuth ..." header to future resource requests.
 
 #import <Foundation/Foundation.h>
+#define GTM_USE_SESSION_FETCHER 1
 
 #ifdef GTL_TARGET_NAMESPACE
   #import "GTLDefines.h"

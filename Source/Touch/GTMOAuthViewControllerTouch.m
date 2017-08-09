@@ -53,7 +53,7 @@ static GTMOAuthKeychain* sDefaultKeychain = nil;
    label = [self performSelector:@selector(titleLabel)];
   }
   // OK to send to button in 2.0, but prefer sending to label.
-  [label setFont:font];
+  [(UILabel *)label setFont:font];
 }
 
 - (void)oauthCompatibilitySetTitleShadowOffset:(CGSize)offset {
@@ -187,6 +187,7 @@ finishedWithAuth:(GTMOAuthAuthentication *)auth
   [initialHTMLString_ release];
   [userData_ release];
   [webView_ release];
+    [browserCookiesURL_ release];
   [super dealloc];
 }
 
@@ -244,7 +245,7 @@ finishedWithAuth:(GTMOAuthAuthentication *)auth
   static const int kButtonHeight = 30;
   static const int kButtonXMargin = 6;
   static const int kButtonWidth = 30;
-  CGRect webFrame = [[UIScreen mainScreen] applicationFrame];
+  CGRect webFrame = [[UIScreen mainScreen] bounds];
   UIView *view = [[[UIView  alloc] initWithFrame:webFrame] autorelease];
   [view setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin |
         UIViewAutoresizingFlexibleWidth |
